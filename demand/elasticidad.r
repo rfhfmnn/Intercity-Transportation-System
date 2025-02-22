@@ -25,9 +25,10 @@ plot(pax_ts, main = "Evolución de la Cantidad de Pasajeros",
 
 adf.test(diff(pax_ts,differences=1))
 tsdisplay(diff(pax_ts,differences = 1))
-arima(pax_ts,c(4,1,12)) #mejor modelo
-pax_arima<-arima(pax_ts,c(4,1,12))
-pax_forecast<-forecast(pax_arima,h=12)
+arima(pax_ts,c(4,1,12)) 
+arima(pax_ts,c(8,1,12)) #mejor
+pax_arima<-arima(pax_ts,c(8,1,12))
+pax_forecast<-forecast(pax_arima,h=1)
 pax_forecast
 autoplot(pax_forecast)
 checkresiduals(pax_forecast)
